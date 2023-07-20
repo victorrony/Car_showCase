@@ -9,18 +9,18 @@ const SearchManuFacturer = ({
   selected,
   setSelected,
 }: SearchManuFacturerProps) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(" ");
 
   const filteredManufacturers =
-    query === ""
+    query === " "
       ? manufacturers
       : manufacturers.filter((item) =>
           item
             .toLowerCase()
-            .replace(/\s+/g, "")
+            .replace(/\s+/g, " ")
             .includes(query.toLowerCase().replace(/\s+/g, ""))
         );
-
+  console.log(filteredManufacturers );
   return (
     <div className="search-manufacturer">
       <Combobox value={selected} onChange={setSelected}>

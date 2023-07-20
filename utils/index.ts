@@ -14,7 +14,7 @@ export async function fetchCars( filters: FilterProps) {
   ${manuFacturer}&year=${year}&model=${model}&limit=${limit}&fuel_type=${fuel}`, {
       headers: headers,
   })
-  // console.log(response.data)
+   console.log( manuFacturer+ "manuFacturer", year+ "year", model + "model", limit + "limit", fuel + "fuel" )
   // Parse the response as JSON
   const  result = await response.json();
   // console.log(result);
@@ -41,26 +41,26 @@ export const generateCarImageUrl = (car: CarProps, angle? : string) => {
   console.log(url)
   const { make, year, model } = car;
 
-  url.searchParams.append('customer', 'hrjavascript-mastery' );
+  url.searchParams.append('customer', 'hrjavascript-mastery' || '' );
   url.searchParams.append('make', make   );
   url.searchParams.append('modelFamily', model.split(' ')[0] );
   url.searchParams.append('zoomType', 'fullScreen' );
   url.searchParams.append('modelYear', `${year}` );
   url.searchParams.append('angle', `${angle}` );
 
-  return `${url}`;
-  
+  return `${url}`;  
 }
 
-export const updateSearchParams = (type: string, value: string) => {
+export const updateSearchParams = (model: string, value: string) => {
   // Get the current URL search params
   const searchParams = new URLSearchParams(window.location.search);
-     
+     console.log(searchParams)
   // Set the specified search parameter to the given value
-  searchParams.set(type, value);
+  searchParams.set(model, value);
 
   // Set the specified search parameter to the given value
   const newPathname = `${ window.location.pathname }? ${searchParams.toString()}`;
+  console.log(newPathname);
 
-  return newPathname;
+  return newPathname;  
 }

@@ -9,7 +9,7 @@ import { fuels, yearsOfProduction } from "@/constants";
 import ShowMore from "@/components/ShowMore";
 import { useEffect, useState } from "react";
 
-export default function Home({ searchParams }) {
+export default function Home( ) {
   const [allCars, setAllCars] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -19,13 +19,14 @@ export default function Home({ searchParams }) {
 
   //filter states
   const [fuel, setFuel] = useState("");
-  const [year, setYear] = useState(202);
+  const [year, setYear] = useState(2022);
 
   //pagination states
   const [limit, setLimit] = useState(10);
 
   const getCars = async () => {
     setLoading(true);
+     
     try {
       const result = await fetchCars({
         manuFacturer: manufacturer || "",
@@ -34,10 +35,10 @@ export default function Home({ searchParams }) {
         limit: limit || 10,
         model: model || "",
       });
-      console.log(result.data)
+     // console.log(result.data)
       setAllCars(result);
     } catch (error) {
-      
+      console.log(error)
     } finally {
       setLoading(false);
     }
@@ -103,7 +104,7 @@ export default function Home({ searchParams }) {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no result</h2>
-            <p>{allCars.message}</p>
+            <p>{allCars?.message}</p>
           </div>
         )}
       </div>

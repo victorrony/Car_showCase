@@ -17,7 +17,7 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-const SearchBar = ( {setManufacturer, setModel }) => { 
+const SearchBar = ( { setManufacturer, setModel }) => { 
   const [searchManuFacturer, setSearchManufacturer] = useState("");
   const [searchModel, setSearchModel] = useState("");
   const Router = useRouter();
@@ -31,6 +31,7 @@ const SearchBar = ( {setManufacturer, setModel }) => {
 
     setModel(searchModel) 
     setManufacturer(searchManuFacturer);
+    console.log(setModel)
   };
 
 
@@ -49,7 +50,7 @@ const SearchBar = ( {setManufacturer, setModel }) => {
           alt="car model"
           width={25}
           height={25}
-          className="absolute w-[20px] h-[20px] ml-4"
+          className="absolute w-[20px] h-[20px] ml-4c m-3"
         />
         <input
           type="text"

@@ -37,10 +37,10 @@ const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
             leaveTo="opacity-0"
           >
             <Listbox.Options className="custom-filter__options">
-              {options.map((options) => (
+              {options.map((option) => (
                 <Listbox.Option
-                  key={options.title}
-                  value={options}
+                  key={option.title}
+                  value={option}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 px-4 ${
                       active ? "bg-primary-blue text-white" : "text-gray-900"
@@ -54,7 +54,7 @@ const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
                           selected ? "font-medium" : "font-normal"
                         }`}
                       >
-                        {options.title}
+                        {option.title}
                       </span>
                     </>
                   )}
