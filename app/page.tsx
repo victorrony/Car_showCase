@@ -30,12 +30,12 @@ export default function Home( ) {
     try {
       const result = await fetchCars({
         manuFacturer: manufacturer || "",
-        year: year || 2022,
+        year: year || 2020,
         fuel: fuel || "",
         limit: limit || 10,
         model: model || "",
       });
-     // console.log(result.data)
+      //console.log(result.data)
       setAllCars(result);
     } catch (error) {
       console.log(error)
@@ -46,11 +46,11 @@ export default function Home( ) {
 
   useEffect(() => {
     getCars();
-    // console.log(getCars);
+     //console.log(getCars);
   }, [fuel, year, limit, model, manufacturer]);
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-   console.log(isDataEmpty);
+   //console.log(isDataEmpty);
   return (
     <main className="overflow-hidden">
       <Hero />
